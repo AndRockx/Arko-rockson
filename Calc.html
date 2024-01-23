@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+<style type="text/css">
+
+h1{
+color: rgb(165, 42, 42);
+}
+body {
+  font-family: sans-serif;
+background-color: beige;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td {
+  border: 1px solid black;
+  padding: 5px;
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  font-size: 16px;
+}
+
+#display {
+  background-color: dimgray;
+width: 150px;
+}
+
+.operator {
+  background-color: #ccc;
+}
+
+.equals {
+  background-color: #00f;
+  color: white;
+}
+#calcFrame{
+  width: 300px;
+/*  height: 1000px;*/
+}
+</style>
+</head>
+<body>
+  <h1>CalcX</h1>
+
+  <div id="calcFrame"><tr>
+    <table>
+      <td><input type="text" id="display" value="0"></td>
+    </tr>
+  </table>
+    
+  <table>
+    <tr>
+      <td><input type="button" value="1" onclick="addNumber(1)"></td>
+      <td><input type="button" value="2" onclick="addNumber(2)"></td>
+      <td><input type="button" value="3" onclick="addNumber(3)"></td>
+      <td><input type="button" value="+" onclick="setOperator('+')"></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="4" onclick="addNumber(4)"></td>
+      <td><input type="button" value="5" onclick="addNumber(5)"></td>
+      <td><input type="button" value="6" onclick="addNumber(6)"></td>
+      <td><input type="button" value="-" onclick="setOperator('-')"></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="7" onclick="addNumber(7)"></td>
+      <td><input type="button" value="8" onclick="addNumber(8)"></td>
+      <td><input type="button" value="9" onclick="addNumber(9)"></td>
+      <td><input type="button" value="/" onclick="setOperator('/')"></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="0" onclick="addNumber(0)"></td>
+      <td><input type="button" value="." onclick="addDecimal()"></td>
+      <td><input type="button" value="C" onclick="clearDisplay()"></td>
+      <td><input type="button" value="=" onclick="calculate()"></td>
+    </tr>
+  </table>
+</div>
+  <script>
+    // Function to add a number to the display
+    function addNumber(number) {
+      document.getElementById('display').value += number;
+    }
+
+    // Function to set the operator
+    function setOperator(operator) {
+      document.getElementById('display').value += operator;
+    }
+
+    // Function to add a decimal to the display
+    function addDecimal() {
+      document.getElementById('display').value += '.';
+    }
+
+    // Function to clear the display
+    function clearDisplay() {
+      document.getElementById('display').value = '0';
+    }
+
+    // Function to calculate the result
+    function calculate() {
+      var expression = document.getElementById('display').value;
+      var result = eval(expression);
+      document.getElementById('display').value = result;
+    }
+  </script>
+</body>
+</html>
+
